@@ -33,7 +33,7 @@ def get_category_id_by_item_id_and_title(
     return id_with_titles_tuple[0], "Unknown"
 
 
-def main(items_ids: list[int]):
+def map_item_id_to_category(items_ids: list[int]):
     items_ids_with_titles_tuples = [
         form_tuples_with_id_and_title(item_id) for item_id in items_ids
     ]
@@ -48,4 +48,4 @@ def main(items_ids: list[int]):
 
 
 if __name__ == "__main__":
-    main(items_ids)
+    map_item_id_to_category(items_ids)
