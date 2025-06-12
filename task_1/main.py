@@ -33,7 +33,16 @@ def get_category_id_by_item_id_and_title(
     return id_with_titles_tuple[0], "Unknown"
 
 
-def map_item_id_to_category(items_ids: list[int]):
+def write_ids_to_excel_file(
+    items_ids_with_categories_ids: list[tuple[int, int | str]]
+) -> None:
+    result = pd.DataFrame(
+        items_ids_with_categories_ids, columns=["item_id", "cat_id"]
+    )
+    result.to_excel("./result.xlsx", index=False)
+
+
+def map_item_id_to_category(items_ids: list[int]) -> None:
     items_ids_with_titles_tuples = [
         form_tuples_with_id_and_title(item_id) for item_id in items_ids
     ]
@@ -41,10 +50,7 @@ def map_item_id_to_category(items_ids: list[int]):
         get_category_id_by_item_id_and_title(item)
         for item in items_ids_with_titles_tuples
     ]
-    result = pd.DataFrame(
-        items_ids_with_categories_ids, columns=["item_id", "cat_id"]
-    )
-    result.to_excel("./result.xlsx", index=False)
+    write_ids_to_excel_file(items_ids_with_categories_ids)
 
 
 if __name__ == "__main__":
