@@ -10,11 +10,12 @@ task_1
 ```bash
 cd task_1
 python main.py
-# Результаты сохраняются в файл "./result.xlsx"
+# Результаты сохраняются в файл "task_1/result.xlsx"
 ```
 ___
 task_2
 ```bash
 cd task_2
-
+python weather.py
+# Результаты сохраняются в файл "task_2/result.xlsx"
 ```
